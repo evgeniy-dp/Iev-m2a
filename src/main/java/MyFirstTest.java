@@ -24,7 +24,7 @@ public class MyFirstTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
     @Test
-    public void test1(){
+    public void testOpenLink(){
         driver.navigate().to("https://www.google.com.ua");
 
     }
