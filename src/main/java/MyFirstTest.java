@@ -1,9 +1,14 @@
+import com.sun.jna.platform.win32.WinDef;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import javax.jws.WebResult;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
@@ -23,13 +28,21 @@ public class MyFirstTest {
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
-    @Test
-    public void testOpenLink(){
-        driver.navigate().to("https://www.google.com.ua");
 
+    @Test
+    public void testOpenLink() throws InterruptedException {
+        driver.navigate().to("http://juliemr.github.io/protractor-demo/");
+        driver.findElement(By.xpath("/html/body/div/div/form/input[1]")).sendKeys("1");
+        driver.findElement(By.xpath("/html/body/div/div/form/input[2]")).sendKeys("1");
+        driver.findElement(By.xpath("//*[@id=\"gobutton\"]")).click();
+        Thread.sleep(5000);
+        String str = driver.findElement(By.xpath("/html/body/div/div/form/h2")).getText();
+        Assert.assertEquals(str, "2");
     }
+
     @AfterTest
-    public void exit(){
+    public void exit() {
         driver.close();
     }
+
 }
