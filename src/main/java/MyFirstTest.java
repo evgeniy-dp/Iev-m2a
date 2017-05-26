@@ -23,7 +23,7 @@ public class MyFirstTest {
         System.setProperty(PropertyLoader.loadProperty("webDriver"), file.getAbsolutePath());
         driver = new ChromeDriver();
 
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
     }
 
     @Test
@@ -66,7 +66,7 @@ public class MyFirstTest {
         Click Go button
         Assert that current result(big number in the left) equals 2 */
         driver.findElement(By.xpath("//*[@id='gobutton']")).click();
-        Thread.sleep(8000);
+        Thread.sleep(1800);
 
         String result = driver.findElement(By.xpath("//h2")).getText();
         Assert.assertEquals(result, "2");
