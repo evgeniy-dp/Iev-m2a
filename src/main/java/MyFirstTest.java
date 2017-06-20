@@ -9,9 +9,7 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by IParshykov on 23/05/2017.
- */
+
 public class MyFirstTest {
 
     private WebDriver driver;
@@ -23,7 +21,7 @@ public class MyFirstTest {
         System.setProperty(PropertyLoader.loadProperty("webDriver"), file.getAbsolutePath());
         driver = new ChromeDriver();
 
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
